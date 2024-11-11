@@ -88,7 +88,7 @@ class _ChuckCallDetailsScreenState extends State<ChuckCallDetailsScreen> with Si
               // const Text('Chuck - HTTP Call Details', style: TextStyle(fontSize: 16)),
               // SizedBox(height: 6),
               Text(
-                '${widget.call.method}:   ${widget.call.endpoint}${widget.call.response?.status != 0 ? ': ${widget.call.response?.status ?? ''}' : ''}',
+                '${widget.call.method}:   ${widget.call.endpoint}${widget.call.response?.status != 0 && widget.call.response?.status != -1 ? ': ${widget.call.response?.status ?? ''}' : ''}',
                 maxLines: 4,
                 overflow: TextOverflow.ellipsis,
                 textAlign: TextAlign.center,

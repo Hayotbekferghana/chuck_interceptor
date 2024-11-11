@@ -417,7 +417,7 @@
     },
     {
       "name": "vm_service",
-      "rootUri": "file:///Users/hayotbek/.pub-cache/hosted/pub.dev/vm_service-14.2.4",
+      "rootUri": "file:///Users/hayotbek/.pub-cache/hosted/pub.dev/vm_service-14.2.5",
       "packageUri": "lib/",
       "languageVersion": "3.3"
     },
@@ -452,10 +452,10 @@
       "languageVersion": "3.3"
     }
   ],
-  "generated": "2024-08-30T10:37:37.205784Z",
+  "generated": "2024-11-11T05:07:59.033135Z",
   "generator": "pub",
-  "generatorVersion": "3.5.0",
+  "generatorVersion": "3.5.4",
   "flutterRoot": "file:///Users/hayotbek/Developer/flutter",
-  "flutterVersion": "3.24.0",
+  "flutterVersion": "3.24.4",
   "pubCache": "file:///Users/hayotbek/.pub-cache"
 }
