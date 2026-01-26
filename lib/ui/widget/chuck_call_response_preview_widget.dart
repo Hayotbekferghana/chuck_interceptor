@@ -17,7 +17,8 @@ class ChuckCallResponsePreviewWidget extends StatefulWidget {
   }
 }
 
-class _ChuckCallResponseWidgetState extends ChuckBaseCallDetailsWidgetState<ChuckCallResponsePreviewWidget> {
+class _ChuckCallResponseWidgetState
+    extends ChuckBaseCallDetailsWidgetState<ChuckCallResponsePreviewWidget> {
   static const _imageContentType = "image";
   static const _jsonContentType = "json";
   static const _xmlContentType = "xml";
@@ -35,7 +36,8 @@ class _ChuckCallResponseWidgetState extends ChuckBaseCallDetailsWidgetState<Chuc
     if (!_call.loading) {
       rows.addAll(_buildBodyRows());
       return ListView(
-        padding: const EdgeInsets.all(6),
+        padding: const EdgeInsets.all(6)
+            .copyWith(bottom: MediaQuery.viewInsetsOf(context).bottom + 48),
         children: rows,
       );
     } else {
@@ -90,12 +92,14 @@ class _ChuckCallResponseWidgetState extends ChuckBaseCallDetailsWidgetState<Chuc
             _call.uri,
             fit: BoxFit.fill,
             headers: _buildRequestHeaders(),
-            loadingBuilder: (BuildContext context, Widget child, ImageChunkEvent? loadingProgress) {
+            loadingBuilder: (BuildContext context, Widget child,
+                ImageChunkEvent? loadingProgress) {
               if (loadingProgress == null) return child;
               return Center(
                 child: CircularProgressIndicator(
                   value: loadingProgress.expectedTotalBytes != null
-                      ? loadingProgress.cumulativeBytesLoaded / loadingProgress.expectedTotalBytes!
+                      ? loadingProgress.cumulativeBytesLoaded /
+                          loadingProgress.expectedTotalBytes!
                       : null,
                 ),
               );
@@ -215,11 +219,14 @@ class _ChuckCallResponseWidgetState extends ChuckBaseCallDetailsWidgetState<Chuc
   }
 
   bool _isImageResponse() {
-    return _getContentTypeOfResponse()!.toLowerCase().contains(_imageContentType);
+    return _getContentTypeOfResponse()!
+        .toLowerCase()
+        .contains(_imageContentType);
   }
 
   bool _isTextResponse() {
-    final String responseContentTypeLowerCase = _getContentTypeOfResponse()!.toLowerCase();
+    final String responseContentTypeLowerCase =
+        _getContentTypeOfResponse()!.toLowerCase();
 
     return responseContentTypeLowerCase.contains(_jsonContentType) ||
         responseContentTypeLowerCase.contains(_xmlContentType) ||
@@ -231,6 +238,7 @@ class _ChuckCallResponseWidgetState extends ChuckBaseCallDetailsWidgetState<Chuc
   }
 
   bool _isLargeResponseBody() {
-    return _call.response!.body != null && _call.response!.body.toString().length > _kLargeOutputSize;
+    return _call.response!.body != null &&
+        _call.response!.body.toString().length > _kLargeOutputSize;
   }
 }
