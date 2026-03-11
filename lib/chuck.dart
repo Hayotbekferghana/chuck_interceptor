@@ -35,6 +35,7 @@ class Chuck {
   late ChuckCore _ChuckCore;
   late ChuckHttpClientAdapter _httpClientAdapter;
   late ChuckHttpAdapter _httpAdapter;
+  ChuckCore get core => _ChuckCore;
 
   /// Creates Chuck instance.
   Chuck({
